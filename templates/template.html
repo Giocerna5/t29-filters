@@ -1,0 +1,24 @@
+
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+  Homework 4
+{% endblock %}
+
+{% block content %}
+
+  <divclass="container">
+    <h1>Pictures</h1>
+    <ul>
+
+      {% for i in range(0,3) %}
+      <li>
+        {{b[i]}}
+        <a href="{{ url_for('page2func', name = b[i] ) }}">
+        <img src="{{ url_for('static', filename=(x[i]+".jpg")) }}" width="200" class="img-responsive img-rounded" alt=""></li>
+        <br></br>
+      </a>
+      {% endfor %}
+    </ul>
+
+  </div>
+{% endblock %}
