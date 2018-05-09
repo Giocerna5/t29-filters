@@ -15,7 +15,7 @@ from PyQt5.QtGui import QPixmap, QIcon
 
 
 #used for combo box
-combo = [ "Choose filters: defaut(none)", "Sepia", "negative", "grayscale", "thumbnail"]
+combo = [ "Choose filters: defaut(none)", "Sepia", "negative", "grayscale"]
 choices = [ "Sample CSUMB image", "Sample Stanford Image", "Sample Harved Image", "Sample Beach image"]
 
 id = [ "csumb", "stanford", "Harvard",
@@ -109,13 +109,6 @@ class MyWindow(QWidget):
             image.putdata(list(grayscale_list))
             image.save('pic.jpg')
 
-        elif (self.my_combo_box.currentIndex() == 4 ):
-            size = (150,150)
-            image.thumbnail(size, Image.ANTIALIAS)
-            mini = Image.new('RGBA', size, (255, 255, 255, 0))
-            mini.paste(image, (int((size[0] - image.size[0]) / 2), int((size[1] - image.size[1]) / 2)))
-            image.save('pic.jpg')
-
 #opens mage in new window
         self.new_win = QWidget()
 
@@ -147,13 +140,6 @@ class MyWindow(QWidget):
         elif (self.my_combo_box.currentIndex() == 3 ):
             grayscale_list = map(lambda a : (int((a[0] + a[1] + a[2]) /3),)*3 , image.getdata())
             image.putdata(list(grayscale_list))
-            image.save('user.jpg')
-
-        elif (self.my_combo_box.currentIndex() == 4 ):
-            size = (150,150)
-            image.thumbnail(size, Image.ANTIALIAS)
-            mini = Image.new('RGBA', size, (255, 255, 255, 0))
-            mini.paste(image, (int((size[0] - image.size[0]) / 2), int((size[1] - image.size[1]) / 2)))
             image.save('user.jpg')
 
     #opens mage in new window and saves it
