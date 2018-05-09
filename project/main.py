@@ -15,7 +15,7 @@ from PyQt5.QtGui import QPixmap, QIcon
 
 
 #used for combo box
-combo = [ "Choose filters: defaut(none)", "Sepia", "negative", "grayscale"]
+combo = [ "Choose filters: defaut(none)", "Sepia", "negative", "grayscale", "Flip image"]
 choices = [ "Sample CSUMB image", "Sample Stanford Image", "Sample Harved Image", "Sample Beach image"]
 
 id = [ "csumb", "stanford", "Harvard",
@@ -108,6 +108,9 @@ class MyWindow(QWidget):
             grayscale_list = map(lambda a : (int((a[0] + a[1] + a[2]) /3),)*3 , image.getdata())
             image.putdata(list(grayscale_list))
             image.save('pic.jpg')
+        elif (self.my_combo_box.currentIndex() == 4 ):
+            flip = image.rotate(180)
+            flip.save('pic.jpg')
 
 #opens mage in new window
         self.new_win = QWidget()
@@ -141,6 +144,9 @@ class MyWindow(QWidget):
             grayscale_list = map(lambda a : (int((a[0] + a[1] + a[2]) /3),)*3 , image.getdata())
             image.putdata(list(grayscale_list))
             image.save('user.jpg')
+        elif (self.my_combo_box.currentIndex() == 4):
+            flip = image.rotate(180)
+            flip.save('user.jpg')
 
     #opens mage in new window and saves it
         self.new_win = QWidget()
