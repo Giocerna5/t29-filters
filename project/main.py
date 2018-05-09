@@ -33,7 +33,7 @@ class MyWindow(QWidget):
         self.my_combo_box2.addItems(choices)
         hbox1.addWidget(self.my_combo_box2)
 
-        gbox1 = QGroupBox('Group Box 1')
+        gbox1 = QGroupBox('Edit your photo here')
         gbox1.setLayout(hbox1)
 
 #buttons depending on choice
