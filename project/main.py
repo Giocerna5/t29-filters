@@ -3,14 +3,12 @@
 #Adrian Ortiz
 #cst205 Avner
 #3-8-18
-#Photo and video editor
-
+#Simple Photo and video editor using pyqt5. Gives user option to use sample images or upload their own
+#GitHub https://github.com/Giocerna5/t29-filters
 import sys
 
 from PIL import Image
-from PyQt5.QtWidgets import (QApplication, QWidget, QLabel, QDialog, QGroupBox,
-                                QHBoxLayout, QVBoxLayout, QPushButton, QLineEdit, QComboBox,
-                                QInputDialog, QFileDialog)
+from PyQt5.QtWidgets import (QApplication, QWidget, QLabel, QDialog, QGroupBox, QHBoxLayout, QVBoxLayout, QPushButton, QLineEdit, QComboBox, QInputDialog, QFileDialog)
 from PyQt5.QtGui import QPixmap, QIcon
 
 
@@ -23,6 +21,7 @@ id = [ "csumb", "stanford", "Harvard",
 #used for uploaded image
 dir = []
 
+#Gio worked on this class and is functions __init__, initUI, run, saveFile, Open, Open2 and sepia. Also the filters in the open and open2.
 class MyWindow(QWidget):
     def __init__(self):
         super().__init__()
@@ -76,6 +75,7 @@ class MyWindow(QWidget):
         self.saveFile()
 
 #runs and saves the file uploaded
+#Gio- i got some help on this from online but cannot remember where.
     def saveFile(self):
         option = QFileDialog.Options()
         option |= QFileDialog.DontUseNativeDialog
@@ -83,13 +83,6 @@ class MyWindow(QWidget):
 #saves file directory and appends it to the dir dictionary
         if fileName:
             dir.append(fileName)
-
-#sets windows
-    def initUI(self):
-        self.setWindowTitle(self.title)
-        self.setGeometry(self.left, self.top, self.width, self.height)
-#opens the image in a new window
-        self.show()
 
 #opens images
     def open(self):
@@ -129,8 +122,7 @@ class MyWindow(QWidget):
         self.new_win.resize(pixmap.width(),pixmap.height())
         self.new_win.show()
 
-    #opens2 is the user uploaded image
-
+#opens2 is the user uploaded image
     def open2(self):
 #saves uploaded user image as image
         image = Image.open(dir[0])
