@@ -9,7 +9,7 @@ CST-205
 
 Run the program while environment is activated. Follow what the buttons say and you are good to go.
 Do not click "Run own Image" button if you did not upload your own image. It will crash.
-
+We finished the video editor but we had tried countless times trying to get the code to link to the buttons and work in our main code but everything we tried wouldn't work.
 
 GitHub link : https://github.com/Giocerna5/t29-filters
 

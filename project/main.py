@@ -8,6 +8,7 @@
 import sys
 import numpy as np
 import cv2
+import testing as k
 
 from PIL import Image
 from PyQt5.QtCore import QDir, Qt, QUrl
@@ -102,7 +103,8 @@ class MyWindow(QWidget):
 
         # self.b3.clicked.connect(self.openVid2)
         # self.b2.clicked.connect(self.run)
-        # self.b.clicked.connect(self.openVid)
+        #self.b.clicked.connect(k.self.play)
+
 #inits the buttons
     def initUI(self):
         self.setWindowTitle(self.title)
@@ -241,7 +243,7 @@ class Video(QMainWindow):
 
 # Upload video
         openAction = QAction(QIcon('open.png'), '&Open', self)
-        openAction.setShortcut('Ctrl+O')
+        openAction.setShortcut('b')
         openAction.setStatusTip('Open movie')
         openAction.triggered.connect(self.openFile)
 
